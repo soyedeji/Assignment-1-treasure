@@ -55,12 +55,16 @@ $config = [
     <h1 id= "gallery_name"><?php echo $config['gallery_name']; ?></h1>
 
     <div class="gallery">
-        <?php foreach ($config['unsplash_categories'] as $category): ?>
-            <div class="category">
-                <h2><?php echo $category; ?></h2>
-                <img src="https://source.unsplash.com/300x200/?<?php echo $category; ?>" alt="<?php echo $category; ?>">
-            </div>
-        <?php endforeach; ?>
+        <!-- Used a for loop instead of foreach -->
+        <?php 
+                for ($i = 0; $i < count($config['unsplash_categories']); $i++): 
+                    $category = $config['unsplash_categories'][$i];
+            ?>
+                <div class="category">
+                    <h2><?php echo $category; ?></h2>
+                    <img src="https://source.unsplash.com/300x200/?<?php echo $category; ?>" alt="<?php echo $category; ?>">
+                </div>
+        <?php endfor; ?>
     </div>
     
     <!--Displays the Large Images title-->
